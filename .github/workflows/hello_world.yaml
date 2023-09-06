@@ -1,9 +1,10 @@
 name: Testing work flow
 
 on:
-    push:
+    pull_request:
         branches:
             - main
+    workflow_dispatch:
 
 jobs:
     hello:
