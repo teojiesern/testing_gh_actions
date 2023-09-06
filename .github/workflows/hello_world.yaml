@@ -5,6 +5,16 @@ on:
         branches:
             - main
     workflow_dispatch:
+      inputs:
+        testing1:
+          description: 'first test'
+          required: true
+        testing2:
+          description: 'second test'
+          required: true
+        testing3:
+          description: 'third test'
+          required: false
 
 jobs:
     hello:
