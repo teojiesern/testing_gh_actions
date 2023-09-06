@@ -1,16 +1,16 @@
 name: Testing work flow
 
 on:
-  push:
-    branches:
-      - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
 
 jobs:
-  hell:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: hi
-        run: |
-          echo "::Hello world"
-          exit 0
-        
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: hi
+              run: |
+                  echo "::Hello world"
+                  exit 0
