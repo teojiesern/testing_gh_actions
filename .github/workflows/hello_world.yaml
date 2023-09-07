@@ -20,16 +20,14 @@ jobs:
     hello:
         runs-on: ubuntu-latest
         steps:
-            - name: Dump Github Context
-              env: 
-                GITHUB_CONTEXT: ${{toJSON(github)}}
-              run: echo $GITHUB_CONTEXT
-            - name: Dump env context
-              env:
-                ENV_CONTEXT: ${{toJSON(env)}}
-              run: echo $ENV_CONTEXT
-            - name: Dump vars context
-              env:
-                VARS_CONTEXT: ${{toJSON(vars)}}
-              run: echo $VARS_CONTEXT
-              
+            - name: with ENV
+              id: with_ENV
+              run: |
+                echo "random_number=1" >> $GITHUB_OUTPUT
+                echo ${{steps.with_ENV.outputs.random_number}}
+            - name: without
+              id: without
+              run: |
+                echo "random_number=1"
+                echo ${{steps.without.outputs.random_number}}
+
