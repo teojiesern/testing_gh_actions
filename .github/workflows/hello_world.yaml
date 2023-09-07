@@ -20,7 +20,16 @@ jobs:
     hello:
         runs-on: ubuntu-latest
         steps:
-            - name: hi
-              run: |
-                  echo "::Hello world"
-                  exit 0
+            - name: Dump Github Context
+              env: 
+                GITHUB_CONTEXT: ${{toJSON(github)}}
+              run: echo $GITHUB_CONTEXT
+            - name: Dump env context
+              env:
+                ENV_CONTEXT: ${{toJSON(env)}}
+              run: echo $ENV_CONTEXT
+            - name: Dump vars context
+              env:
+                VARS_CONTEXT: ${{toJSON(vars)}}
+              run: echo $VARS_CONTEXT
+              
