@@ -24,10 +24,10 @@ jobs:
               id: with_ENV
               run: |
                 echo "random_number=1" >> $GITHUB_OUTPUT
-                echo ${{steps.with_ENV.outputs}}
+                echo ${{steps.with_ENV.outputs.random_number}}
             - name: without
               id: without
               run: |
                 echo "random_number=1"
-                echo ${{steps.without.outputs}}
+                echo ${{steps.without.outputs.random_number}}
 
