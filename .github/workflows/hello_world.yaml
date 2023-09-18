@@ -6,7 +6,7 @@ on:
             - main
         paths:
             - hi.ts
-            - test/
+            - test/**
     workflow_dispatch:
       inputs:
         testing1:
