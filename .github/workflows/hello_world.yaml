@@ -4,6 +4,9 @@ on:
     pull_request:
         branches:
             - main
+        paths:
+            - hi.ts
+            - test/
     workflow_dispatch:
       inputs:
         testing1:
