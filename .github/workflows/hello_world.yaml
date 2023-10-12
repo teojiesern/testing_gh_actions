@@ -8,16 +8,16 @@ on:
             - hi.ts
             - test/**
     workflow_dispatch:
-      inputs:
-        testing1:
-          description: 'first test'
-          required: true
-        testing2:
-          description: 'second test'
-          required: true
-        testing3:
-          description: 'third test'
-          required: false
+      # inputs:
+      #   testing1:
+      #     description: 'first test'
+      #     required: true
+      #   testing2:
+      #     description: 'second test'
+      #     required: true
+      #   testing3:
+      #     description: 'third test'
+      #     required: false
     discussion_comment:
       types: created
 
@@ -25,14 +25,7 @@ jobs:
     hello:
         runs-on: ubuntu-latest
         steps:
-            - name: with ENV
+            - name: run node
               id: with_ENV
-              run: |
-                echo "random_number=1" >> $GITHUB_OUTPUT
-                echo ${{steps.with_ENV.outputs.random_number}}
-            - name: without
-              id: without
-              run: |
-                echo "random_number=1"
-                echo ${{steps.without.outputs.random_number}}
+              run: node something.js
 
