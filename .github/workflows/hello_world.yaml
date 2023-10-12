@@ -31,7 +31,8 @@ jobs:
           - name: Run JavaScript
             id: runJS
             run: node something.js
+
+          - name: Return
+            run: echo ${{ steps.runJS.outputs.thing }}
           
-          - name: See return statement
-            run: echo ${{ steps.runJS.outputs }}
 

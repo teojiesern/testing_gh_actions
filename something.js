@@ -1,2 +1,4 @@
+import * as core from '@actions/core';
+
 console.log('node worked')
-return 'hello'
+core.setOutput('thing', 'hello')
