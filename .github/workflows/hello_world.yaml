@@ -35,7 +35,7 @@ jobs:
   
           - name: Run JavaScript
             id: runJS
-            run: ts-node something.js hello
+            run: ts-node something.ts hello
 
           - name: Return
             run: echo ${{ steps.runJS.outputs.thing }}
