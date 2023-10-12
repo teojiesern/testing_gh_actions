@@ -29,5 +29,9 @@ jobs:
             uses: actions/checkout@v2
   
           - name: Run JavaScript
+            id: runJS
             run: node something.js
+          
+          - name: See return statement
+            run: echo ${{ steps.runJS }}
 
