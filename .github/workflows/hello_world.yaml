@@ -25,7 +25,9 @@ jobs:
     hello:
         runs-on: ubuntu-latest
         steps:
-            - name: run node
-              id: with_ENV
-              run: node something.js
+          - name: Check out code
+            uses: actions/checkout@v2
+  
+          - name: Run JavaScript
+            run: node something.js
 
