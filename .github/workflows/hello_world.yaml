@@ -33,5 +33,5 @@ jobs:
             run: node something.js
           
           - name: See return statement
-            run: echo ${{ steps.runJS }}
+            run: echo ${{ steps.runJS.outputs }}
 
