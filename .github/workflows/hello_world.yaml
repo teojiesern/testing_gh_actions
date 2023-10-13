@@ -27,6 +27,11 @@ jobs:
         steps:
           - name: Check out code
             uses: actions/checkout@v2
+            
+          - name: Setup node
+            uses: actions/setup-node@v3
+            with:
+              node-version: 18
           
           - name: yarn
             run: |
