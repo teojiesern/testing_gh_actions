@@ -38,7 +38,9 @@ jobs:
             run: ts-node something.ts hello
 
           - name: Return
-            run: echo ${{ steps.runJS.outputs.thing }}
+            run: |
+              echo ${{ steps.runJS.outputs.thing }}
+              echo ${{ steps.runJS.outputs.fallback}}
           
           - name: run if failed
             if: ${{ steps.runJS.outputs.fallback == true }}
