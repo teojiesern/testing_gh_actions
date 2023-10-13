@@ -27,11 +27,6 @@ jobs:
         steps:
           - name: Check out code
             uses: actions/checkout@v2
-            
-          - name: Setup node
-            uses: actions/setup-node@v3
-            with:
-              node-version: 18
           
           - name: yarn
             run: |
@@ -40,7 +35,7 @@ jobs:
   
           - name: Run JavaScript
             id: runJS
-            run: ts-node-esm something.ts hello
+            run: ts-node something.ts hello
 
           - name: Return
             run: echo ${{ steps.runJS.outputs.thing }}
