@@ -42,8 +42,12 @@ jobs:
               echo ${{ steps.runJS.outputs.thing }}
               echo ${{ steps.runJS.outputs.fallback}}
           
-          - name: run if failed
+          - name: run if fallback
             if: ${{ steps.runJS.outputs.fallback == 'true' }} 
             run: echo "fallback ran"
+
+          - name: run if not fallback
+            if: ${{ steps.runJS.outputs.fallback != 'true' }}
+            run: echo 'fallback is not true'
           
 
