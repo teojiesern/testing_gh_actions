@@ -14,4 +14,7 @@ jobs:
         if: always()
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
           title: "Overwrote title in wtf"
