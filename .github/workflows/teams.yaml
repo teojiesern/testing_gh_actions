@@ -30,7 +30,6 @@ jobs:
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: "`Overwrote title in test`"
-          msteams_emails: "jiesern.teo@ytldigital.com"
           job: ${{ toJson(job) }}
           steps: ${{ toJson(steps) }}
           needs: ${{ toJson(needs) }}
