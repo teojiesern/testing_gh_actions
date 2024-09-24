@@ -13,4 +13,4 @@ jobs:
         if: always() # to let this step always run even if previous step failed
         with:
           github-token: ${{ github.token }}
-          webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URL }}
