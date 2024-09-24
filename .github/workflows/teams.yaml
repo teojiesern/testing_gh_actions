@@ -33,6 +33,7 @@ jobs:
           job: ${{ toJson(job) }}
           steps: ${{ toJson(steps) }}
           needs: ${{ toJson(needs) }}
+          dry_run: True
 
   # without_optional_params:
   #   name: One with little info
