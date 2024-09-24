@@ -4,20 +4,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  success:
-    name: One with everything
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
-        with:
-          webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          needs: ${{ toJson(needs) }}
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}
-          dry_run: True
+  # success:
+  #   name: One with everything
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@master
+  #     - name: Microsoft Teams Notification
+  #       uses: skitionek/notify-microsoft-teams@master
+  #       if: always()
+  #       with:
+  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+  #         needs: ${{ toJson(needs) }}
+  #         job: ${{ toJson(job) }}
+  #         steps: ${{ toJson(steps) }}
+  #         dry_run: True
 
   with_emails:
     name: One with emails
@@ -29,7 +29,7 @@ jobs:
         if: always()
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: "`Overwrote title in ${workflow_link}`"
+          title: "`Overwrote title in test`"
           msteams_emails: "jiesern.teo@ytldigital.com"
           job: ${{ toJson(job) }}
           steps: ${{ toJson(steps) }}
