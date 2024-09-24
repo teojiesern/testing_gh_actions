@@ -4,21 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # success:
-  #   name: One with everything
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Microsoft Teams Notification
-  #       uses: skitionek/notify-microsoft-teams@master
-  #       if: always()
-  #       with:
-  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-  #         needs: ${{ toJson(needs) }}
-  #         job: ${{ toJson(job) }}
-  #         steps: ${{ toJson(steps) }}
-  #         dry_run: True
-
   with_emails:
     name: One with emails
     runs-on: ubuntu-latest
@@ -29,74 +14,4 @@ jobs:
         if: always()
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: "`Overwrote title in test`"
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}
-          needs: ${{ toJson(needs) }}
-          dry_run: True
-
-  # without_optional_params:
-  #   name: One with little info
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Microsoft Teams Notification
-  #       uses: skitionek/notify-microsoft-teams@master
-  #       if: always()
-  #       with:
-  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-
-  # with_overwrite:
-  #   name: One with overwrite
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Microsoft Teams Notification
-  #       uses: skitionek/notify-microsoft-teams@master
-  #       if: always()
-  #       with:
-  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-  #         title: "`Overwrote title in something`"
-
-  # with_raw:
-  #   name: One with raw data
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Microsoft Teams Notification
-  #       uses: skitionek/notify-microsoft-teams@master
-  #       if: always()
-  #       with:
-  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-  #         raw: >-
-  #           {
-  #               "type": "message",
-  #               "attachments":
-  #               [
-  #                   {
-  #                       "contentType": "application/vnd.microsoft.card.adaptive",
-  #                       "content":
-  #                       {
-  #                           "type": "AdaptiveCard",
-  #                           "body":
-  #                           [
-  #                               {
-  #                                   "type": "TextBlock",
-  #                                   "text": "Test title text"
-  #                               }
-  #                           ]
-  #                       }
-  #                   }
-  #               ]
-  #           }
-
-  # if_failure:
-  #   name: Only if failure
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - name: Microsoft Teams Notification
-  #       uses: skitionek/notify-microsoft-teams@master
-  #       if: failure()
-  #       with:
-  #         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          title: "Overwrote title in test"
