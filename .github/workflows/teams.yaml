@@ -28,8 +28,8 @@ jobs:
         with:
           webhookUrl: >-
             ${{
-              ($EAS_BUILD_PROFILE == 'dev' || $EAS_BUILD_PROFILE == 'prod') && vars.TEAMS_WEBHOOK_URL ||
-              $EAS_BUILD_PROFILE == 'test' && vars.TEAMS_WEBHOOK_URL2 || vars.TEAMS_WEBHOOK_URL
+              (env.EAS_BUILD_PROFILE == 'dev' || env.EAS_BUILD_PROFILE == 'prod') && vars.TEAMS_WEBHOOK_URL ||
+              env.EAS_BUILD_PROFILE == 'test' && vars.TEAMS_WEBHOOK_URL2
             }}
           title: ${{ github.workflow }} Failed
           titleBackgroundColor: "failure"
