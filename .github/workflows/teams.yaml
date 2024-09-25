@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout repository
         run: exit 0
+
       - name: Run on failure
         if: failure()
       - uses: neonidian/teams-notify-build-status@v4.1
