@@ -11,14 +11,26 @@ jobs:
       - name: Checkout repository
         run: exit 1
 
+      - name: Collect Failed Steps
+        if: failure()
+        id: collect_failures
+        run: |
+          failed_steps=""
+          for step in step1 step2 step3 step4 step5; do
+            if [[ "${{ steps[step].outcome }}" == "failure" ]]; then
+              failed_steps="${failed_steps}${failed_steps:+, }$step"
+            fi
+          done
+          echo "failed_steps=${failed_steps}" >> $GITHUB_OUTPUT
+
       - name: Run on failure
         if: failure()
         uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: "Daily Build Failed: ${{ github.job }}"
+          title: "Daily Build Failed"
           titleBackgroundColor: "failure"
           status: Failure
-          message: "Daily Build Failed in job: ${{ github.job }}. Additional details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          message: "Daily Build Failed. Failed steps: ${{ steps.collect_failures.outputs.failed_steps }}. Additional details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         env:
           SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
