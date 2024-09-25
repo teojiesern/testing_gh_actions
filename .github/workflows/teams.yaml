@@ -1,4 +1,4 @@
-name: MS Teams Deploy Card
+name: Daily Build
 
 on:
   workflow_dispatch:
