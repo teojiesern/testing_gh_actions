@@ -16,9 +16,9 @@ jobs:
         uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          title: Tests
+          title: "Daily Build Failed: ${{ github.job }}"
           titleBackgroundColor: "failure"
           status: Failure
-          message: Unit tests have been run for version
+          message: "Daily Build Failed in job: ${{ github.job }}. Additional details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         env:
           SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
