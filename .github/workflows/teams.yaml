@@ -9,13 +9,13 @@ jobs:
 
     steps:
       - uses: neonidian/teams-notify-build-status@v3
-      with:
-        webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        title: Tests
-        titleBackgroundColor: 'failure'
-        status: Hello
-        message: Unit tests have been run for version
-      env:                                                    
-        SHOULD_DISPLAY_ACTOR_LABEL: true
-        SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
-        SHOULD_DISPLAY_VIEW_COMMIT_BUTTON: true
+        with:
+          webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          title: Tests
+          titleBackgroundColor: "failure"
+          status: Hello
+          message: Unit tests have been run for version
+        env:
+          SHOULD_DISPLAY_ACTOR_LABEL: true
+          SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
+          SHOULD_DISPLAY_VIEW_COMMIT_BUTTON: true
