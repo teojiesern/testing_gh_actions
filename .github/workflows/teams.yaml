@@ -24,9 +24,9 @@ jobs:
         uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{
-            github.event.inputs.eas_build_profile == 'dev' && env.TEAMS_WEBHOOK_URL ||
-            github.event.inputs.eas_build_profile == 'test' && env.TEAMS_WEBHOOK_URL2 ||
-            github.event.inputs.eas_build_profile == 'prod' && env.TEAMS_WEBHOOK_URL3 }}
+            github.event.inputs.eas_build_profile == 'dev' && vars.TEAMS_WEBHOOK_URL ||
+            github.event.inputs.eas_build_profile == 'test' && vars.TEAMS_WEBHOOK_URL2 ||
+            github.event.inputs.eas_build_profile == 'prod' && vars.TEAMS_WEBHOOK_URL3 }}
           title: ${{ github.workflow }} Failed
           titleBackgroundColor: "failure"
           message: "${{ github.workflow }} Failed: Please check the logs for more details."
