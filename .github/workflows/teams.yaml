@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: neonidian/teams-notify-build-status@latest
+      - uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: Tests
