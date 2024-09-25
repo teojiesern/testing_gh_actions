@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set EAS build profile
+        run: echo "EAS_BUILD_PROFILE=${{ github.event.inputs.eas_build_profile || 'test' }}" >> $GITHUB_ENV
+
       - name: Checkout repository
         run: exit 1
 
@@ -25,12 +28,8 @@ jobs:
         with:
           webhookUrl: >-
             ${{
-              (github.event.inputs.eas_build_profile == 'dev' || 
-              github.event.inputs.eas_build_profile == 'prod') && 
-                vars.TEAMS_WEBHOOK_URL ||
-              github.event.inputs.eas_build_profile == 'test' && 
-                vars.TEAMS_WEBHOOK_URL2 ||
-              vars.TEAMS_WEBHOOK_URL
+              ($EAS_BUILD_PROFILE == 'dev' || $EAS_BUILD_PROFILE == 'prod') && vars.TEAMS_WEBHOOK_URL ||
+              $EAS_BUILD_PROFILE == 'test' && vars.TEAMS_WEBHOOK_URL2 || vars.TEAMS_WEBHOOK_URL
             }}
           title: ${{ github.workflow }} Failed
           titleBackgroundColor: "failure"
