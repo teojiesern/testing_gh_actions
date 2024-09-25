@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        run: exit 0
+        run: exit 1
 
       - name: Run on failure
         if: failure()
