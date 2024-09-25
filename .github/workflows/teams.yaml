@@ -17,6 +17,6 @@ jobs:
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           status: Failure
-          message: "Daily Build Failed at ${{ format(fromJson(steps.current_time.outputs.result).time, 'YYYY-MM-DD HH:mm:ss') }} MYT"
+          message: "Daily Build Failed"
         env:
           SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
