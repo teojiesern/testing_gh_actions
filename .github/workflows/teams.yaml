@@ -1,20 +1,16 @@
-name: Teams notification
+name: MS Teams Deploy Card
 
 on:
   workflow_dispatch:
 
 jobs:
-  with_emails:
-    name: One with emails
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - name: MSTeams Notification
-        uses: skitionek/notify-microsoft-teams@master
+      - uses: actions/checkout@v2
+      - uses: dchourasia/ms-teams-notification@1.1
         if: always()
         with:
-          webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          needs: ${{ toJson(needs) }}
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}
-          title: "Overwrote title in wtf"
+          github-token: ${{ github.token }}
+          webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URL }}
