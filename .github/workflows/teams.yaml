@@ -18,7 +18,6 @@ jobs:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: ${{ github.workflow }} Failed
           titleBackgroundColor: "failure"
-          status: Failure
           message: "${{ github.workflow }} Failed: Please check the logs for more details."
         env:
           SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
