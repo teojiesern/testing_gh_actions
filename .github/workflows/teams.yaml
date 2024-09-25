@@ -13,7 +13,7 @@ jobs:
 
       - name: Run on failure
         if: failure()
-      - uses: neonidian/teams-notify-build-status@v4.1
+        uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: Tests
