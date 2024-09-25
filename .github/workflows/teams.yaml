@@ -2,6 +2,13 @@ name: Daily Build
 
 on:
   workflow_dispatch:
+    inputs:
+      eas_build_profile:
+        description: "EAS build profile (for adhoc builds)"
+        type: choice
+        options:
+          - test
+          - test3
 
 jobs:
   build:
@@ -15,7 +22,7 @@ jobs:
         if: failure()
         uses: neonidian/teams-notify-build-status@v4.1
         with:
-          webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          webhookUrl: ${{ github.event.inputs.eas_build_profile == 'test' && secrets.TEAMS_WEBHOOK_URL || github.event.inputs.eas_build_profile == 'test3' && secrets.TEAMS_WEdfdBHOOK_URL }}
           title: ${{ github.workflow }} Failed
           titleBackgroundColor: "failure"
           message: "${{ github.workflow }} Failed: Please check the logs for more details."
