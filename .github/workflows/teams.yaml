@@ -8,9 +8,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        run: exit 0
+      - name: Run on failure
+        if: failure()
       - uses: neonidian/teams-notify-build-status@v4.1
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: Tests
           titleBackgroundColor: "failure"
+          status: Failure
           message: Unit tests have been run for version
+        env:
+          SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
