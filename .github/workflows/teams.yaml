@@ -11,11 +11,10 @@ jobs:
       - uses: neonidian/teams-notify-build-status@v3
       with:
         webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
-        title: Tests                                      # Specify a title header
-        titleBackgroundColor: 'failure'    # Specify title background color. 'unitTest' is the ID of a step
-        status: Hello               # Specify what should be displayed in the status label
-        message: >-
-          Unit tests have been run for version
+        title: Tests
+        titleBackgroundColor: 'failure'
+        status: Hello
+        message: Unit tests have been run for version
       env:                                                    
         SHOULD_DISPLAY_ACTOR_LABEL: true
         SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
