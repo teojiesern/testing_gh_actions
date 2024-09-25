@@ -8,10 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: neonidian/teams-notify-build-status@v3
+      - uses: neonidian/teams-notify-build-status@latest
         with:
           webhookUrl: ${{ secrets.TEAMS_WEBHOOK_URL }}
           title: Tests
           titleBackgroundColor: "failure"
-          status: Hello
           message: Unit tests have been run for version
